@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YudTech PCB - Solusi Desain Layout PCB Profesional & Presisi</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        dark: '#0f172a', 
+                        pcb: '#10b981',  
+                        pcb_dark: '#065f46',
+                        glass: 'rgba(15, 23, 42, 0.85)'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        .hero-bg {
+            background-image: linear-gradient(to right, rgba(15, 23, 42, 0.95), rgba(15, 23, 42, 0.7)), url('https://www.arnabkumardas.com/blog/wp-content/uploads/2020/04/PCB-Screenshot-Line-Follower-Robot-v0.1.png');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+        .circuit-pattern {
+            background-image: radial-gradient(#10b981 0.5px, transparent 0.5px);
+            background-size: 30px 30px;
+            opacity: 0.05;
+        }
+        .glow-green {
+            box-shadow: 0 0 20px rgba(16, 185, 129, 0.4);
+        }
+        .card-hover:hover {
+            transform: translateY(-8px);
+            border-color: #10b981;
+            background-color: rgba(30, 41, 59, 0.8);
+        }
+        .portfolio-img {
+            transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+            max-height: 100%;
+            width: auto;
+        }
+        .group:hover .portfolio-img {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body class="bg-dark text-slate-300 antialiased">
+
+    <!-- Navbar -->
+    <nav class="fixed w-full z-50 bg-dark/80 backdrop-blur-md border-b border-white/5" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex-shrink-0 flex items-center gap-2">
+                    <div class="p-2 bg-pcb/10 rounded-lg border border-pcb/20">
+                        <svg class="w-8 h-8 text-pcb" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"></path>
+                        </svg>
+                    </div>
+                    <span class="text-2xl font-bold text-white tracking-tight">YudTech<span class="text-pcb"> PCB</span></span>
+                </div>
+
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="#beranda" class="hover:text-pcb transition-colors font-medium">Beranda</a>
+                    <a href="#layanan" class="hover:text-pcb transition-colors font-medium">Layanan</a>
+                    <a href="#portofolio" class="hover:text-pcb transition-colors font-medium">Portofolio</a>
+                    <a href="#cara-kerja" class="hover:text-pcb transition-colors font-medium">Cara Kerja</a>
+                    <a href="#kontak" class="bg-pcb hover:bg-pcb_dark text-dark font-bold px-6 py-2.5 rounded-xl transition-all glow-green">Pesan Sekarang</a>
+                </div>
+
+                <div class="md:hidden">
+                    <button id="mobile-menu-btn" class="text-slate-300 p-2">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path id="menu-icon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden bg-dark/95 border-b border-white/5 px-4 py-6 space-y-4">
+            <a href="#beranda" class="block text-lg hover:text-pcb">Beranda</a>
+            <a href="#layanan" class="block text-lg hover:text-pcb">Layanan</a>
+            <a href="#portofolio" class="block text-lg hover:text-pcb">Portofolio</a>
+            <a href="#cara-kerja" class="block text-lg hover:text-pcb">Cara Kerja</a>
+            <a href="#kontak" class="block text-lg text-pcb font-bold">Pesan Sekarang</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="beranda" class="relative min-h-screen flex items-center pt-20 hero-bg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 py-20 lg:py-0">
+            <div class="max-w-3xl">
+                <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-pcb/10 border border-pcb/30 text-pcb text-sm font-semibold mb-8 backdrop-blur-sm">
+                    <span class="relative flex h-2 w-2">
+                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-pcb opacity-75"></span>
+                        <span class="relative inline-flex rounded-full h-2 w-2 bg-pcb"></span>
+                    </span>
+                    Jasa Desain PCB Terpercaya
+                </div>
+                <h1 class="text-5xl md:text-7xl font-extrabold text-white leading-tight mb-8">
+                    Solusi Desain <br>
+                    <span class="text-pcb">Layout PCB</span> Presisi
+                </h1>
+                <p class="text-xl text-slate-300 mb-12 leading-relaxed">
+                    Kami menghadirkan desain PCB kelas industri dari skematik Anda. Optimal untuk manufaktur, integritas sinyal terjamin, dan lolos uji DRC ketat.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-5">
+                    <a href="#kontak" class="px-10 py-4 bg-pcb text-dark font-extrabold rounded-xl hover:bg-pcb_dark transition-all text-lg glow-green text-center">Konsultasi Gratis</a>
+                    <a href="#portofolio" class="px-10 py-4 bg-white/5 border border-white/10 backdrop-blur-md text-white font-bold rounded-xl hover:bg-white/10 transition-all text-lg text-center">Lihat Portofolio</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="layanan" class="py-32 relative overflow-hidden">
+        <div class="absolute inset-0 circuit-pattern"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center mb-20">
+                <h2 class="text-pcb font-bold tracking-[0.2em] uppercase text-sm mb-4">Layanan Spesialis</h2>
+                <h3 class="text-4xl md:text-5xl font-bold text-white">Apa Yang Kami Kerjakan?</h3>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Card 1 -->
+                <div class="p-10 bg-slate-900/40 border border-white/5 rounded-[2rem] card-hover transition-all duration-500 backdrop-blur-sm">
+                    <div class="w-16 h-16 bg-pcb/10 rounded-2xl flex items-center justify-center text-pcb mb-8">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path></svg>
+                    </div>
+                    <h4 class="text-2xl font-bold text-white mb-4">Single & Double Layer</h4>
+                    <p class="text-slate-400 leading-relaxed">Layout efisien untuk proyek standar dengan integritas jalur terbaik.</p>
+                </div>
+                <!-- Card 2 -->
+                <div class="p-10 bg-slate-900/40 border border-white/5 rounded-[2rem] card-hover transition-all duration-500 backdrop-blur-sm">
+                    <div class="w-16 h-16 bg-pcb/10 rounded-2xl flex items-center justify-center text-pcb mb-8">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7v8a2 2 0 002 2h6M8 7V5a2 2 0 012-2h4.586a1 1 0 01.707.293l4.414 4.414a1 1 0 01.293.707V15a2 2 0 01-2 2h-2M8 7H6a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2v-2"></path></svg>
+                    </div>
+                    <h4 class="text-2xl font-bold text-white mb-4">Multilayer Design</h4>
+                    <p class="text-slate-400 leading-relaxed">Desain kompleks hingga 8+ layer untuk High Speed PCB.</p>
+                </div>
+                <!-- Card 3 -->
+                <div class="p-10 bg-slate-900/40 border border-white/5 rounded-[2rem] card-hover transition-all duration-500 backdrop-blur-sm">
+                    <div class="w-16 h-16 bg-pcb/10 rounded-2xl flex items-center justify-center text-pcb mb-8">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                    </div>
+                    <h4 class="text-2xl font-bold text-white mb-4">Skematik ke Layout</h4>
+                    <p class="text-slate-400 leading-relaxed">Konversi skematik menjadi board siap cetak yang profesional.</p>
+                </div>
+                <!-- Card 4 -->
+                <div class="p-10 bg-slate-900/40 border border-white/5 rounded-[2rem] card-hover transition-all duration-500 backdrop-blur-sm">
+                    <div class="w-16 h-16 bg-pcb/10 rounded-2xl flex items-center justify-center text-pcb mb-8">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path></svg>
+                    </div>
+                    <h4 class="text-2xl font-bold text-white mb-4">Reverse Engineering</h4>
+                    <p class="text-slate-400 leading-relaxed">Re-desain dari board fisik menjadi file Gerber digital.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portofolio" class="py-32 bg-slate-900/30">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-pcb font-bold tracking-widest uppercase text-xs mb-4">Galeri Proyek</h2>
+                <h3 class="text-5xl font-extrabold text-white">Hasil Desain Terkini</h3>
+            </div>
+            
+            <div class="flex flex-col gap-10">
+                <!-- Proyek 1 -->
+                <div class="group bg-slate-900/50 border border-white/5 rounded-[2.5rem] overflow-hidden hover:border-pcb/40 transition-all shadow-2xl">
+                    <div class="aspect-[16/9] relative overflow-hidden bg-[#1a1f2e] border-b border-white/5 flex items-center justify-center">
+                        <img src="https://www.arnabkumardas.com/blog/wp-content/uploads/2020/04/PCB-Screenshot-Line-Follower-Robot-v0.1.png" alt="Pengendali Line Follower" class="portfolio-img">
+                    </div>
+                    <div class="p-10">
+                        <p class="text-pcb text-xs font-bold uppercase tracking-widest mb-3">Robotika</p>
+                        <h5 class="text-2xl font-bold text-white group-hover:text-pcb transition-colors">Pengendali Line Follower</h5>
+                    </div>
+                </div>
+
+                <!-- Proyek 2 -->
+                <div class="group bg-slate-900/50 border border-white/5 rounded-[2.5rem] overflow-hidden hover:border-pcb/40 transition-all shadow-2xl">
+                    <div class="aspect-[16/9] relative overflow-hidden bg-[#2d3652] border-b border-white/5 flex items-center justify-center">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRL9riEDYHfiEf96fKDcJcv5LCa0i-oXL635w&s" alt="Papan Konverter Step-Down" class="portfolio-img">
+                    </div>c-konverte
+                    <div class="p-10">
+                        <p class="text-pcb text-xs font-bold uppercase tracking-widest mb-3">Elektronika Daya</p>
+                        <h5 class="text-2xl font-bold text-white group-hover:text-pcb transition-colors">Papan Konverter Step-Down</h5>
+                    </div>
+                </div>
+
+                <!-- Proyek 3: IOT ESP 32 -->
+                <div class="group bg-slate-900/50 border border-white/5 rounded-[2.5rem] overflow-hidden hover:border-pcb/40 transition-all shadow-2xl">
+                    <div class="aspect-[16/9] relative overflow-hidden bg-[#1e293b] border-b border-white/5 flex items-center justify-center">
+                        <img src="https://pcbwayfile.s3.us-west-2.amazonaws.com/web/24/05/18/1446453873252.png" alt="ESP 32" class="portfolio-img brightness-110">
+                    </div>
+                    <div class="p-10">
+                        <p class="text-pcb text-xs font-bold uppercase tracking-widest mb-3">IOT</p>
+                        <h5 class="text-2xl font-bold text-white group-hover:text-pcb transition-colors">ESP 32</h5>
+                    </div>
+                </div>
+
+                <!-- Proyek 4 -->
+                <div class="group bg-slate-900/50 border border-white/5 rounded-[2.5rem] overflow-hidden hover:border-pcb/40 transition-all shadow-2xl">
+                    <div class="aspect-[16/9] relative overflow-hidden bg-[#1a1f2e] border-b border-white/5 flex items-center justify-center">
+                        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhBEKVP0Y5wq2o1RaZHQnpLp3-n37K8UEpENtHP0644ueXFeK6Cwvx4D7VjQaDmxE41ei7CcJcL1SsBJCkdeZrOG9DLebjEArmu0I0QH7xbCUGW4v0d2q7riYY3j1nmM6YljUceDjvxuqQ/s640/lengkap.png" alt="Trainer Mikrokontroler Arduino" class="portfolio-img">
+                    </div>
+                    <div class="p-10">
+                        <p class="text-pcb text-xs font-bold uppercase tracking-widest mb-3">Edukasi</p>
+                        <h5 class="text-2xl font-bold text-white group-hover:text-pcb transition-colors">Trainer Mikrokontroler Arduino</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Alur Pemesanan -->
+    <section id="cara-kerja" class="py-32 bg-dark">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h3 class="text-4xl font-bold text-white mb-20">Alur Pemesanan</h3>
+            <div class="grid grid-cols-1 md:grid-cols-5 gap-8 relative">
+                <!-- Step 1 -->
+                <div class="relative z-10 group">
+                    <div class="w-20 h-20 bg-pcb text-dark font-black text-2xl rounded-2xl flex items-center justify-center mx-auto mb-6 glow-green rotate-3 transition-transform group-hover:scale-110">1</div>
+                    <h5 class="font-bold text-white text-lg">Input</h5>
+                    <p class="text-slate-500 text-sm mt-2 px-2">Kirim skematik atau daftar komponen (BOM).</p>
+                </div>
+                <!-- Step 2 -->
+                <div class="relative z-10 group">
+                    <div class="w-20 h-20 bg-slate-800 text-pcb font-black text-2xl rounded-2xl flex items-center justify-center mx-auto mb-6 border border-pcb/20 -rotate-3 transition-transform group-hover:scale-110">2</div>
+                    <h5 class="font-bold text-white text-lg">Quotation</h5>
+                    <p class="text-slate-500 text-sm mt-2 px-2">Analisis biaya dan estimasi waktu pengerjaan.</p>
+                </div>
+                <!-- Step 3 -->
+                <div class="relative z-10 group">
+                    <div class="w-20 h-20 bg-slate-800 text-pcb font-black text-2xl rounded-2xl flex items-center justify-center mx-auto mb-6 border border-pcb/20 rotate-3 transition-transform group-hover:scale-110">3</div>
+                    <h5 class="font-bold text-white text-lg">Design</h5>
+                    <p class="text-slate-500 text-sm mt-2 px-2">Proses pembuatan layout jalur PCB profesional.</p>
+                </div>
+                <!-- Step 4 -->
+                <div class="relative z-10 group">
+                    <div class="w-20 h-20 bg-slate-800 text-pcb font-black text-2xl rounded-2xl flex items-center justify-center mx-auto mb-6 border border-pcb/20 -rotate-6 transition-transform group-hover:scale-110">4</div>
+                    <h5 class="font-bold text-white text-lg">Review</h5>
+                    <p class="text-slate-500 text-sm mt-2 px-2">Pengecekan desain bersama pelanggan (feedback).</p>
+                </div>
+                <!-- Step 5 -->
+                <div class="relative z-10 group">
+                    <div class="w-20 h-20 bg-slate-800 text-pcb font-black text-2xl rounded-2xl flex items-center justify-center mx-auto mb-6 border border-pcb/20 rotate-6 transition-transform group-hover:scale-110">5</div>
+                    <h5 class="font-bold text-white text-lg">Delivery</h5>
+                    <p class="text-slate-500 text-sm mt-2 px-2">Pengiriman file Gerber final siap cetak.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section (UPDATED TO WHATSAPP) -->
+    <section id="kontak" class="py-32 relative overflow-hidden">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="bg-slate-900 border border-white/10 p-10 md:p-16 rounded-[3rem] shadow-2xl relative overflow-hidden">
+                <div class="absolute top-0 right-0 p-8 text-pcb/5 opacity-20">
+                    <svg class="w-64 h-64" fill="currentColor" viewBox="0 0 200 200"><path d="M40 40h120v120h-120z"/><circle cx="100" cy="100" r="30"/></svg>
+                </div>
+                <div class="relative z-10 text-center mb-12">
+                    <h3 class="text-3xl font-bold text-white mb-4">Mulai Proyek Anda</h3>
+                    <p class="text-slate-400">Konsultasikan kebutuhan layout Anda langsung via WhatsApp</p>
+                    <div class="mt-4 inline-flex items-center gap-3 px-6 py-3 bg-pcb/10 border border-pcb/20 rounded-2xl text-pcb font-mono font-bold">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.438 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                        0821-7205-7033
+                    </div>
+                </div>
+                <form id="contactForm" onsubmit="event.preventDefault(); handleOrder();" class="space-y-6 relative z-10">
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-sm font-semibold text-slate-400 mb-3 ml-1">Nama</label>
+                            <input type="text" id="formName" class="w-full bg-dark border border-white/10 rounded-2xl px-6 py-4 focus:border-pcb outline-none text-white transition-all focus:ring-1 focus:ring-pcb/30" placeholder="Nama Anda" required>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold text-slate-400 mb-3 ml-1">Jenis Proyek</label>
+                            <input type="text" id="formProject" class="w-full bg-dark border border-white/10 rounded-2xl px-6 py-4 focus:border-pcb outline-none text-white transition-all focus:ring-1 focus:ring-pcb/30" placeholder="Contoh: Power Supply / IOT" required>
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-semibold text-slate-400 mb-3 ml-1">Pesan / Detail Teknis</label>
+                        <textarea id="formMessage" rows="4" class="w-full bg-dark border border-white/10 rounded-2xl px-6 py-4 focus:border-pcb outline-none text-white transition-all focus:ring-1 focus:ring-pcb/30 resize-none" placeholder="Ceritakan detail teknis proyek Anda..." required></textarea>
+                    </div>
+                    <button type="submit" class="w-full bg-pcb hover:bg-pcb_dark text-dark font-black py-5 rounded-2xl transition-all glow-green text-lg uppercase tracking-widest flex items-center justify-center gap-3">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347"/></svg>
+                        Hubungi via WhatsApp
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark/50 border-t border-white/5 py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="flex items-center justify-center gap-3 mb-6">
+                <div class="p-2 bg-pcb/10 rounded-lg">
+                    <svg class="w-6 h-6 text-pcb" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"></path></svg>
+                </div>
+                <span class="text-2xl font-bold text-white">YudTech<span class="text-pcb"> PCB</span></span>
+            </div>
+            <p class="text-slate-500 mb-8">Solusi layout PCB presisi tinggi bersama YudTech PCB.</p>
+            <div class="text-slate-600 text-sm">
+                &copy; 2026 YudTech PCB Indonesia.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+        const icon = document.getElementById('menu-icon');
+
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+            if(menu.classList.contains('hidden')) {
+                icon.setAttribute('d', 'M4 6h16M4 12h16M4 18h16');
+            } else {
+                icon.setAttribute('d', 'M6 18L18 6M6 6l12 12');
+            }
+        });
+
+        // WhatsApp redirect handler
+        function handleOrder() {
+            const name = document.getElementById('formName').value;
+            const project = document.getElementById('formProject').value;
+            const message = document.getElementById('formMessage').value;
+            const phone = "6282172057033"; // Format Internasional
+            
+            const text = `Halo YudTech PCB, saya *${name}*.\n\nSaya ingin berkonsultasi mengenai proyek *${project}*.\n\nDetail:\n${message}`;
+            const encodedText = encodeURIComponent(text);
+            const whatsappUrl = `https://wa.me/${phone}?text=${encodedText}`;
+            
+            window.open(whatsappUrl, '_blank');
+        }
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    menu.classList.add('hidden');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
